@@ -30,7 +30,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <ListBox Grid.Column="0" x:Name="lb_wordList" Margin="5" ItemsSource="{Binding WordList}" SelectedItem="{Binding SelectedWord}" ></ListBox>
+            <ListBox Grid.Column="0" x:Name="lb_wordList" Margin="5" ItemsSource="{Binding WordList}" SelectedItem="{Binding SelectedWord}"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"></ListBox>
 
             <TextBlock Grid.Column="1" x:Name="tb_description" Margin="5" Text="{Binding SelectedWord}" ></TextBlock>
         </Grid>
