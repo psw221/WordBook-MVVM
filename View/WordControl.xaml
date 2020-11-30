@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="WordBook.View.WordControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WordBook.View"
+             xmlns:ViewModel="clr-namespace:WordBook.ViewModel"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <UserControl.DataContext>
+        <ViewModel:WordViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBox x:Name="tb_inputWord" Width="200" Margin="5" Text="{Binding Path=WordString , UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" />
+            <Button x:Name="btn_inputWord" Width="150" Margin="5" Content="Add" Command="{Binding MyCommand}"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ListBox Grid.Column="0" x:Name="lb_wordList" Margin="5" ItemsSource="{Binding WordList}" SelectedItem="{Binding SelectedWord}" ></ListBox>
+
+            <TextBlock Grid.Column="1" x:Name="tb_description" Margin="5" Text="{Binding SelectedWord}" ></TextBlock>
+        </Grid>
+    </Grid>
+</UserControl>
